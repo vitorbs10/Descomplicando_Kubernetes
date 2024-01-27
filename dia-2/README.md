@@ -1,1 +1,1 @@
-Descomplicando Kubernetes - DIA 2
+# # # Descomplicando Kubernetes - DIA 2
