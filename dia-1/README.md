@@ -1,4 +1,4 @@
-# Descomplicando_Kubernetes
+# Descomplicando Kubernetes - DIA 1
 
 No primeiro dia do treinamento foram passados os conceitos do Kubernetes e alguns comandos e dicas básicas para continuar com os estudos, como:
 
