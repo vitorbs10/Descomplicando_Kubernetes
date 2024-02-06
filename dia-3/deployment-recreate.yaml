@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   labels:
     app: nginx-deployment
-    teste: mudando
   name: nginx-deployment
   namespace: giropops
 spec:
@@ -12,10 +11,7 @@ spec:
     matchLabels:
       app: nginx-deployment
   strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 0
-      maxUnavailable: 1
+    type: Recreate
   template:
     metadata:
       labels:
@@ -26,11 +22,8 @@ spec:
         name: nginx
         resources:
           limits:
-            cpu: 0.6
+            cpu: 0.5
             memory: "256Mi"
           requests:
-            cpu: 0.4
+            cpu: 0.3
             memory: "64Mi"
-
-
-
