@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-deployment
+    teste: mudando
+  name: nginx-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-deployment
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: nginx-deployment
+    spec:
+      containers:
+      - image: nginx:1.15.0
+        name: nginx
+        resources:
+          limits:
+            cpu: 0.6
+            memory: "256Mi"
+          requests:
+            cpu: 0.4
+            memory: "64Mi"
+
+
+
