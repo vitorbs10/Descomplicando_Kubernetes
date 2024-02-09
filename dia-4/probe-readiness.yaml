@@ -5,17 +5,11 @@ metadata:
     app: nginx-deployment
     teste: mudando
   name: nginx-deployment
-  namespace: giropops
 spec:
-  replicas: 10
+  replicas: 1
   selector:
     matchLabels:
       app: nginx-deployment
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 0
-      maxUnavailable: 1
   template:
     metadata:
       labels:
@@ -38,7 +32,17 @@ spec:
           initialDelaySeconds: 10
           periodSeconds: 10
           timeoutSeconds: 5
-          failureThreshold: 3      
-
+          failureThreshold: 3
+        readinessProbe:
+          exec:
+            command:
+            - curl
+            - -f
+            - http://10.244.1.18:80/
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+          successThreshold: 1
 
 
